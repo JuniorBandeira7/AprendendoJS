@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #dv1{
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        background-color: white;
+    }
+    #dv2{
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        background-color: white;
+    }
+</style>
+<body>
+    <h1>setTimeout</h1>
+    <div id="dv1"></div>
+    <br>
+    <h1>setInterval</h1>
+    <div id="dv2"></div>
+    <br>
+    <button id="bt1">Iniciar</button>
+    <button id="bt2">Parar</button>
+    <script>
+
+        function mudaCor(){
+            var obj=document.getElementById("dv1")
+            var r=Math.floor(Math.random()*255)
+            var g=Math.floor(Math.random()*255)
+            var b=Math.floor(Math.random()*255)
+            obj.style.backgroundColor="rgb("+r+","+g+","+b+")"
+        }
+        //setTimeout acontece apenas uma vez
+        var tmp=setTimeout(mudaCor,3000)//trabalha com ms
+        
+
+        function mudaCor1(){
+            var obj=document.getElementById("dv2")
+            var r=Math.floor(Math.random()*255)
+            var g=Math.floor(Math.random()*255)
+            var b=Math.floor(Math.random()*255)
+            obj.style.backgroundColor="rgb("+r+","+g+","+b+")"
+        }
+        var tmp1//declarando aqui a variável fica com escopo global
+        //setInterval acontece indefinidamente
+        function Iniciar(){
+            tmp1=setInterval(mudaCor1,1000)
+        }
+        function parar(){
+            clearInterval(tmp1)
+        }
+        function addEventos(){
+            document.getElementById("bt1").addEventListener("click", Iniciar)
+            document.getElementById("bt2").addEventListener("click", parar)
+        }
+
+        window.addEventListener("load", addEventos)//é necessário fazer isso pois o script é lido antes de carregar a pagina
+        
+
+    </script>
+</body>
+</html>

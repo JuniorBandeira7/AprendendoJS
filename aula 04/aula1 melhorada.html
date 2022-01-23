@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exemplos de forms</h1>
+    <h2>somando</h2>
+    <input type="number" name="txt" id="txt">
+    <input type="number" name="txt2" id="txt2">
+    <input type="button" value="somar" onclick="somar()">
+     <br><br><br>
+        <h2>Contador de letras</h2>
+    Escreva seu nome:
+    <input type="text" name="" id="nome" placeholder="Escreva seu nome..."> <!-- placeholder deixa o "lugar gurdado". o texto fica cinza e é apagado quando o usuario começar a digitar nele -->
+    <input type="button" value="Clique aqui para saber quantas letras tem seu nome" onclick="contnome()">
+    <h2>Selecione seu sexo</h2>
+    <form id="sexof">
+        <input type="radio" name="sexo" id="">Masculino <br>
+        <input type="radio" name="sexo" id="">Feminino
+    </form>
+    <h2>Escolha Suas comidas favoritas</h2>
+    <form id="comidaf">
+        <input type="checkbox" name="" id="">Lasanha <br>
+        <input type="checkbox" name="" id="">Pizza <br>
+        <input type="checkbox" name="" id="">Açai <br>
+        <input type="checkbox" name="" id="">Sushi <br>
+        <input type="checkbox" name="" id="">Camarão <br>
+        <input type="checkbox" name="" id="">Churrasco <br>
+        <input type="checkbox" name="" id="">Pipoca <br>
+    </form>
+
+    </div>
+    <script>
+        function somar() {
+            var tn1 = document.getElementById('txt')
+            var tn2 = document.getElementById('txt2')
+            var res = document.getElementById('res')
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)
+            var s = n1 + n2
+            alert(`A soma entre ${n1} e ${n2} é igual a ${s}`)
+        }
+        function contnome(){
+            var nome = ""
+            nome = document.getElementById('nome').value
+            alert(`Seu nome tem ${nome.length} letras`)
+        }
+    </script>
+      <style>
+        div#area {
+            font: normal 20pt arial;
+            background: green;
+            color: white;
+            width: 200px;
+            height:  200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id = "area">
+        interaja...
+
+    </div>
+    <script>
+        var a = window.document.getElementById('area')
+        a.addEventListener('click', clicar)
+        a.addEventListener('mouseenter', entrar)
+        a.addEventListener('mouseout', sair)
+        a.addEventListener('mousedown', apertar)
+        function clicar(){
+            a.innerText = "clicou!"
+            a.style.background ='red'
+
+        }
+        function entrar(){
+            a.innerText = 'entrou!'
+            a.style.background = 'blue'
+        }
+        function sair(){
+            a.innerText = 'interaja...'
+            a.style.background = 'green'
+        }
+        function apertar(){
+            a.innerText = 'Apertou!'
+            a.style.background = 'yellow'
+        }
+        
+
+    </script>
+</body>
+</html>
